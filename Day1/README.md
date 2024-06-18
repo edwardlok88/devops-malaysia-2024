@@ -173,14 +173,14 @@ docker inspect image ubuntu:16.04
 ```
 
 Expected output
-![inspect](inspect1.png)
+![inspect](inspect1.png) ⚡ jegan@tektutor.org  docker run --name c1 ubuntu:16.04
+
 ![inspect](inspect2.png)
 
 ## Lab - Creating a container and running it in background
 ```
 docker run -dit --name ubuntu1 --hostname ubuntu2 ubuntu:16.04 /bin/bash
 docker run -dit --name ubuntu2 --hostname ubuntu3 ubuntu:16.04 /bin/bash
-
 ```
 
 Expected output
