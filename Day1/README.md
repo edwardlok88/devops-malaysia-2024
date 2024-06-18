@@ -90,9 +90,43 @@
   - Just like VMs has their own Network Card, the container also has their own Network Card
   - Just like VMs has a Network Stack, containers also has their own Network stack
   - Just like VMs has its own Port range, container also has their own Port range ( 0-65535 ports )
+
+## What is a Container Image?
+<pre>
+- is a bluesprint or specification of a Containerized application
+- whatever software tools/libs we need in the container are installed in the container image
+- using container image we can create one or more containers
+- containers are the running instances of container image
+</pre>  
+ 
+## What is Container Registry?
+<pre>
+- is generally a web server that hosts multiple container images for us upload/download container images
+- there are 3 types of Container Registries
+  - Local Container Registry (which is a folder under user home directory )
+  - Private Container Registry
+    - can be setup using JFrog Artifactory or Sonatype Nexus
+  - Remote Container Registry ( eg - Docker Hub website )
+</pre>  
+
 ## What is Container Runtime?
+<pre>
+- is a low-level software that manages container images and container life cycle
+- it is not so user-friendly, hence end-users like us don't normally use the container runtime softwares
+- examples
+  - runC 
+  - CRI-O 
+</pre>
 
 ## What is Container Engine?
+<pre>
+- Container Engine is a high-level software that manages container images and container life cycle
+- Container Engines internally depends on Container Runtime software to manage images and containers
+- very user-friendly, don't have know linux kernel knowledge Or OS low-level details to create containers
+- examples
+  - Docker is a Container Engine which uses containerd internally, containerd depends on runC container runtime
+  - Podman is a Container Engine which uses CRI-O container runtime internally
+</pre>
 
 ## Docker High Level Archtitecture
 
