@@ -166,4 +166,12 @@ docker pull ubuntu:18.04
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7b98899d-7253-491f-ab3b-afe50899d3a4)
 
+## Lab - Inspecting docker image to find more details about the image
+```
+docker images
+docker inspect image ubuntu:16.04
+```
 
+Expected output
+![inspect](inspect1.png)
+![inspect](inspect2.png)
