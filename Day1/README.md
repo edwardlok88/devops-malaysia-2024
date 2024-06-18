@@ -150,7 +150,7 @@ docker info
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/84e5f9a2-9c8b-4ee8-8af5-425aae2e575c)
 
-## Lab - Listing docker images
+## Lab - Listing and downloading docker images
 
 Listing docker images from your local docker registry
 ```
