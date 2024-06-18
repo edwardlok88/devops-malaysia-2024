@@ -149,3 +149,21 @@ docker info
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/84e5f9a2-9c8b-4ee8-8af5-425aae2e575c)
+
+## Lab - Listing docker images
+
+Listing docker images from your local docker registry
+```
+docker images
+```
+
+Downloading docker image from Docker Hub Remote Registry to your Local Docker Registry
+```
+docker pull ubuntu:16.04
+docker pull ubuntu:18.04
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7b98899d-7253-491f-ab3b-afe50899d3a4)
+
+
