@@ -91,6 +91,15 @@
   - Just like VMs has a Network Stack, containers also has their own Network stack
   - Just like VMs has its own Port range, container also has their own Port range ( 0-65535 ports )
 
+## Linux Kernel Features that supports Containerization
+1. Namespace
+2. Control Groups (CGroups)
+   - helps in applying resource quota restrictions to individual containers
+   - we can apply restriction like
+     - how much maximum cpu resources a container can utilize at any time
+     - how much RAM a container can use at any time
+     - how much disk space a contianer can use 
+
 ## What is a Container Image?
 <pre>
 - is a bluesprint or specification of a Containerized application
