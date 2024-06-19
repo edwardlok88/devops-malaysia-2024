@@ -173,3 +173,27 @@ curl http://192.168.1.104:9090
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f8b4df3c-5e49-4187-bbe0-1c7257d5a734)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/1aa29721-556d-4a55-8088-c75e72ba6eb4)
+
+## Lab - Creating mysql container and running it in background
+```
+docker images
+docker run -d --name mysql --hostname mysql bitnami/mysql:latest
+```
+
+List and check if the mysql container is running
+```
+docker ps
+```
+
+The mysql container doesn't seem to be running, hence let's list all containers
+```
+docker ps -a
+```
+
+Let's check the mysql container log to troubleshoot
+```
+docker logs mysql
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/552256b2-a035-4f52-80fa-dc4b688c3972)
