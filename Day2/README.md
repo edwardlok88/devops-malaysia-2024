@@ -142,3 +142,4 @@ curl http://172.17.0.2:8080
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7f357e89-3305-4fdd-b14b-040d98b3d33d)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/6d5450a1-f4ab-4abf-a17a-5a55022c9aa4)
