@@ -130,3 +130,15 @@ docker images
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c784cf67-d979-4901-aed8-cb73ff15d9c1)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/9fb55d3a-4a44-429e-a5d6-89ea5f549c0e)
+
+Creating a container using the custom docker image we built just now
+```
+docker images
+docker run -d --name hello --hostname hello tektutor/helloms:1.0
+docker ps
+docker inspect -f {{.NetworkSettings.IPAddress}} hello
+curl http://172.17.0.2:8080
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7f357e89-3305-4fdd-b14b-040d98b3d33d)
