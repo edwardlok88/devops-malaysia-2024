@@ -231,7 +231,21 @@ exit
 exit
 ```
 
+Let's delete the mysql container
+```
+docker ps
+docker rm -f mysql
+```
+
+At this point, we not only delete the mysql container we also deleted the 'tektutor' database and the training table along with all records.  This is due to the reason we used container internal storage which is bad practice.  The training table data ideally has a long life time compared to the container life time, hence we should rely the container storage, instead we should use an external storage to persist the data permanently.
+
+Container are treated as temporary resource, hence though it is possible to store data internally, we aren't supposed to store application data in the container internal storage.
+
+Hence we should use external disk volume.
+
+
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/aea24105-6a8c-4001-8330-22ed6a66e8bb)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/781232ef-af44-4dad-afd4-cc43fa059dfd)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/a06c802a-c2d3-4231-a6fa-f8d1d0c940c8)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/8d90ff06-79d1-4fbf-adc8-1d6d5da94ad1)
