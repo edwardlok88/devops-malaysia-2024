@@ -198,3 +198,40 @@ docker logs mysql
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/552256b2-a035-4f52-80fa-dc4b688c3972)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f0bb103d-6360-4b1e-9233-61d3931f8f38)
+
+Let's create the mysql container suppling the root password as environment variable
+```
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 bitnami/mysql:latest
+docker ps
+docker logs -f mysql
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/9fa770c7-826b-4e37-ab86-0f10f1eb062f)
+
+Getting inside the mysql container shell
+```
+docker exec -it mysql sh
+ls
+mysql -u root -p
+
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+SHOW TABLES;
+CREATE TABLE training ( id INT NOT NULL, name VARCHAR(200) NOT NULL, duration VARCHAR(200) NOT NULL, PRIMARY KEY(id) );
+
+INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO training VALUES ( 2, "Microservices with golang", "5 Days" );
+INSERT INTO training VALUES ( 3, "Advanced Openshift", "5 Days" );
+
+SELECT * FROM training;
+DESCRIBE training;
+exit
+exit
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/aea24105-6a8c-4001-8330-22ed6a66e8bb)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/781232ef-af44-4dad-afd4-cc43fa059dfd)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/a06c802a-c2d3-4231-a6fa-f8d1d0c940c8)
