@@ -1,5 +1,11 @@
 # Day 2
 
+## Lab - Installing ifconfig and ping command in Windows Ubuntu WSL
+```
+sudo apt update
+sudo apt install -y net-tools iputils-ping
+```
+
 ## Lab - Deleting all containers irrespective of their running state
 ```
 docker rm -f $(docker ps -aq)
@@ -53,7 +59,7 @@ List the running containers
 ```
 docker ps
 ```
-
+192.168.1.104
 Stopping containers
 ```
 docker stop ubuntu1
