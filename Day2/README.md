@@ -13,6 +13,16 @@ docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:16.04 /bin/bash
 docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:16.04 /bin/bash
 ```
 
+Listing the currently running containers
+```
+docker ps
+```
+
+Listing all the container irrespective of their running states
+```
+docker ps -a
+```
+
 Finding the IP address of the containers
 ```
 docker inspect ubuntu1 | grep IPA
