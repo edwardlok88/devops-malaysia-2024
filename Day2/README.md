@@ -42,7 +42,8 @@ hostname
 hostname -i
 ls
 whoami
+exit
 ```
 
 Expected output
-![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/1443f2ed-3d90-450b-8114-29c40c6767a2)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/6337cb73-da2e-4735-9c54-dd4a315cd856)
