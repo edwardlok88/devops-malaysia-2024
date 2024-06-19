@@ -143,3 +143,27 @@ curl http://172.17.0.2:8080
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7f357e89-3305-4fdd-b14b-040d98b3d33d)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/6d5450a1-f4ab-4abf-a17a-5a55022c9aa4)
+
+## Lab - Port forwarding to expose containerized application to remote machines
+Let's delete the existing hello container before proceeding
+```
+docker rm -f hello
+```
+
+Let's create a new container with port forwarding
+```
+docker run -d --name hello --hostname hello -p 9090:8080 tektutor/helloms:1.0
+docker ps
+```
+
+In the above command, the port 9090 is exposed to the remote machines, whenever requests hits the local machine with IP 192.168.1.104 at port 9090, the request is forwarded to the container at port 8080.
+
+Accessing the containerized application from remote machines, Find the IP address of your machine
+```
+ifconfig
+curl http://192.168.1.104:9090
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f8b4df3c-5e49-4187-bbe0-1c7257d5a734)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/1aa29721-556d-4a55-8088-c75e72ba6eb4)
