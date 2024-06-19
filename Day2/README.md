@@ -117,3 +117,16 @@ docker rm -f c1 c2
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/fff2f8ea-4c67-4f14-b21f-3037e866f4fa)
+
+## Lab - Building Custom Docker Image
+```
+cd ~/devops-malaysia-2024
+git pull
+cd Day2/CustomDockerImages
+docker built -t tektutor/helloms:1.0 .
+docker images
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c784cf67-d979-4901-aed8-cb73ff15d9c1)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/9fb55d3a-4a44-429e-a5d6-89ea5f549c0e)
