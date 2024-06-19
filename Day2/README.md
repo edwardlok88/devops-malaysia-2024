@@ -249,3 +249,52 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/781232ef-af44-4dad-afd4-cc43fa059dfd)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/a06c802a-c2d3-4231-a6fa-f8d1d0c940c8)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/8d90ff06-79d1-4fbf-adc8-1d6d5da94ad1)
+
+
+## Lab - Creating mysql database server container with external storage
+```
+docker rm -f mysql
+
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
+
+docker ps
+docker logs mysql
+```
+
+Get inside the mysql container shell, type 'root@123' as password without quotes
+```
+docker exec -it mysql sh
+mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+SHOW TABLES;
+CREATE TABLE training ( id INT NOT NULL, name VARCHAR(200) NOT NULL, duration VARCHAR(200) NOT NULL, PRIMARY KEY(id) );
+
+INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO training VALUES ( 2, "Microservices with golang", "5 Days" );
+INSERT INTO training VALUES ( 3, "Advanced Openshift", "5 Days" );
+
+SELECT * FROM training;
+DESCRIBE training;
+exit
+exit
+```
+Let's delete the mysql container
+```
+docker ps
+docker rm -f mysql
+```
+
+Though we deleted the container, since we persisted the mysql data in an external volume (storage) we haven't lost the data.
+
+```
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
+
+docker exec -it mysql sh
+mysql -u root -p
+SHOW DATABASES;
+USE tektutor;
+SHOW TABLES;
+SELECT * FROM training;
+```
