@@ -72,3 +72,24 @@ docker ps
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/83d82487-2782-4cdb-aac9-7ba0c88728ab)
+
+## Lab - Renaming containers and restarting the containers
+
+Renaming containers
+```
+docker ps
+docker rename ubuntu3 c3
+docker rename ubuntu2 c2
+docker rename ubuntu1 c1
+docker ps
+```
+
+Restarting containers ( renaming containers doesn't mandate restart containers )
+```
+docker restart c1
+docker restart c2 c3
+docker ps
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/baf7c6a1-1b64-4d38-b20d-94784bfd57fb)
