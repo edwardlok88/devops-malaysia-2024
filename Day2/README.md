@@ -123,7 +123,7 @@ Expected output
 cd ~/devops-malaysia-2024
 git pull
 cd Day2/CustomDockerImages
-docker built -t tektutor/helloms:1.0 .
+docker build -t tektutor/helloms:1.0 .
 docker images
 ```
 
