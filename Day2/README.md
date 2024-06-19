@@ -47,3 +47,28 @@ exit
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/6337cb73-da2e-4735-9c54-dd4a315cd856)
+
+## Lab - Start/Stop containers
+List the running containers
+```
+docker ps
+```
+
+Stopping containers
+```
+docker stop ubuntu1
+docker stop ubuntu2 ubuntu3
+docker ps
+```
+
+Starting exited containers
+```
+docker ps
+docker ps -a
+docker start ubuntu1
+docker start ubuntu2 ubuntu3
+docker ps
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/83d82487-2782-4cdb-aac9-7ba0c88728ab)
