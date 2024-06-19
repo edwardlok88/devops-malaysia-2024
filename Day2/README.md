@@ -93,3 +93,27 @@ docker ps
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/baf7c6a1-1b64-4d38-b20d-94784bfd57fb)
+
+## Lab - Deleting containers
+We can't delete a running container
+```
+docker ps
+docker rm c3
+```
+
+In order to delete a running container, it must be stopped first
+```
+docker stop c3
+docker rm c3
+docker ps
+docker ps -a
+```
+
+We could delete containers forcibly without stopping container optionally
+```
+docker ps
+docker rm -f c1 c2 
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/fff2f8ea-4c67-4f14-b21f-3037e866f4fa)
