@@ -300,3 +300,7 @@ USE tektutor;
 SHOW TABLES;
 SELECT * FROM training;
 ```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c8124c93-bc70-4965-9676-4a8eef9aa2ab)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/fcc4a507-ce43-4404-8d43-8bfacc84d179)
