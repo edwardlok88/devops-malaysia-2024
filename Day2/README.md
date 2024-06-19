@@ -33,3 +33,16 @@ docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu3
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c0c3d56e-c865-4022-a9f2-8158e9a18ba3)
+
+## Lab - Getting inside a running container shell
+```
+docker ps
+docker exec -it ubuntu1 /bin/bash
+hostname
+hostname -i
+ls
+whoami
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/1443f2ed-3d90-450b-8114-29c40c6767a2)
