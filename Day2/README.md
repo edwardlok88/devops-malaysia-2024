@@ -197,3 +197,4 @@ docker logs mysql
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/552256b2-a035-4f52-80fa-dc4b688c3972)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f0bb103d-6360-4b1e-9233-61d3931f8f38)
