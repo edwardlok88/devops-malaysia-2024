@@ -288,6 +288,8 @@ docker rm -f mysql
 
 Though we deleted the container, since we persisted the mysql data in an external volume (storage) we haven't lost the data.
 
+In the below command, the /tmp/mysql folder we need create. The /bitnami/mysql/data folder exists already in mysql container which acts like mountpath.  The mountpath if it is not there, it would created automatically just like how it works in Unix/Linux.
+
 ```
 docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
 
