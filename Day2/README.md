@@ -291,6 +291,9 @@ Though we deleted the container, since we persisted the mysql data in an externa
 In the below command, the /tmp/mysql folder we need create. The /bitnami/mysql/data folder exists already in mysql container which acts like mountpath.  The mountpath if it is not there, it would created automatically just like how it works in Unix/Linux.
 
 ```
+mkdir -p /tmp/mysql
+chmod 777 /tmp/mysql
+
 docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
 
 docker exec -it mysql sh
@@ -302,5 +305,15 @@ SELECT * FROM training;
 ```
 
 Expected output
-![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c8124c93-bc70-4965-9676-4a8eef9aa2ab)
-![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/fcc4a507-ce43-4404-8d43-8bfacc84d179)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/127bdb8e-44c7-4a0d-b6d7-ea86c88e3675)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/72e422ec-5c37-48f0-b9ee-66b495d5ff38)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/769a9bd9-91ae-4acc-b7c8-3b634cc5caa1)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5594fb1d-04ff-4738-8e85-a4ba80568dd4)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/65082fd7-8deb-4ba9-b29c-bd1d21c9c036)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/dfd3d5ed-d435-4b60-b0be-f666a1ab4d4a)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/2bb4b231-514c-4b21-a752-a92c7cb2a49a)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/9c2a13ca-b055-408b-b544-124d2bfc3984)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/a48a04d2-1bf2-40fe-8ec8-a1ff1b61f953)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/0905f6a7-3af9-4ad8-8237-6594652f0ef5)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/394a8b89-4220-4cb1-9d03-0e93b4f3d27b)
+
