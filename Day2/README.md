@@ -333,3 +333,9 @@ docker images
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/dfd19683-3b25-4e3b-a965-fd14d88766f4)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/38dbb2e0-8a0c-43a0-8a73-c532aa518369)
+
+In case you wish to delete all images from your local docker registry, you may do this
+```
+docker images -q
+docker rmi $(docker images -q)
+```
