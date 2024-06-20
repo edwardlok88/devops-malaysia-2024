@@ -358,5 +358,88 @@ Expected output
 ## Lab - Setting up a Load Balancer using Nginx
 ![loadbalancer](lb1.png)
 
+Let's remove any currently running containers
 ```
+docker rm -f $(docker ps -aq)
 ```
+
+Let's create 3 nginx web server containers
+```
+docker run -dit --name web1 --hostname web1 bitnami/nginx:latest
+docker run -dit --name web2 --hostname web2 bitnami/nginx:latest
+docker run -dit --name web3 --hostname web3 bitnami/nginx:latest
+docker ps
+```
+
+Let's create the load balancer container
+```
+docker run -dit --name lb --hostname lb -p 80:8080 bitnami/nginx:latest
+docker ps
+```
+
+Let's find the IP addresses of the containers
+```
+docker inspect -f {{.NetworkSettings.IPAddress}} web1
+docker inspect -f {{.NetworkSettings.IPAddress}} web2
+docker inspect -f {{.NetworkSettings.IPAddress}} web3
+docker inspect -f {{.NetworkSettings.IPAddress}} lb
+```
+
+Let's get inside the web1 container to customize the web page
+```
+docker exec -it web1 sh
+ls
+cat index.html
+exit
+```
+
+From the local machine, let's create an index.html file and copy the same on to the containers
+```
+pwd
+echo "Web Server 1" > index.html
+docker cp index.html web1:/app/index.html
+
+echo "Web Server 2" > index.html
+docker cp index.html web2:/app/index.html
+
+echo "Web Server 3" > index.html
+docker cp index.html web3:/app/index.html
+```
+
+In order to test if the updated web pages are served by web1, web2 and web containers
+```
+docker inspect -f {{.NetworkSettings.IPAddress}} web1
+curl http://172.17.0.2:8080
+
+docker inspect -f {{.NetworkSettings.IPAddress}} web2
+curl http://172.17.0.3:8080
+
+docker inspect -f {{.NetworkSettings.IPAddress}} web3
+curl http://172.17.0.4:8080
+```
+
+Let's copy nginx.conf file from the lb container to our local machine
+```
+docker cp lb:/etc/nginx/nginx.conf .
+```
+
+Edit the nginx.conf file as shown below
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f93e0e1f-bf77-4d6a-b923-a0333cc97066)
+
+Save the file and copy it back to the container
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+```
+
+To apply config changes, we need to restart the lb container
+```
+docker restart lb
+docker ps
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/95875885-0209-4126-a2d4-b324355c8603)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/836a8eb3-81fe-4305-a53f-4763cbb1c398)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/0adf800a-da10-4fde-8c21-bfa629b26328)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/6fa8c711-5086-457d-a76f-6d9bb91253f9)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/cce057f4-6798-4900-8b85-81c2e0f5ebbc)
