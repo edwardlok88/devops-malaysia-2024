@@ -354,3 +354,9 @@ If you exit the shell inside container, it will terminate the container, as bash
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c0c74ff2-0acd-4207-ac4f-58e99bd93bd6)
+
+## Lab - Setting up a Load Balancer using Nginx
+![loadbalancer](lb1.png)
+
+```
+```
