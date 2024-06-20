@@ -30,3 +30,10 @@
 </pre>
 
 ## Kubernetes Overview
+<pre>
+- Kubernetes is a Container Orchestration Platform  
+- the applications that we intend to run with Kubernetes must be containerized
+- this is opensource
+- developed by Google in Golang
+
+</pre>
