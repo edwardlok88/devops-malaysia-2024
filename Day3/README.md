@@ -73,3 +73,14 @@ minikube start --driver=virtualbox
 ```
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/d807f6fb-9bb5-42aa-aefd-d8574aa814cd)
+
+
+## Info - Pod Overview
+<pre>
+- Pod is a group of related containers
+- application runing inside the container
+- one or more containers can run inside a Pod
+- IP address is assigned on the Pod level not on the container level
+- the containers within the same Pod shares the same IP
+- the containers within the same Pod shared the Port range (0-65535) available on the Pod level
+</pre>
