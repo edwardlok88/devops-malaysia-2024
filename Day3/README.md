@@ -53,5 +53,23 @@ https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinar
 - the applications that we intend to run with Kubernetes must be containerized
 - this is opensource
 - developed by Google in Golang
-
 </pre>
+
+## Demo - Downloading the Minikube setup binary for linux
+```
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+```
+
+## Demo - Installing Minikube as Docker container
+```
+minikube start --driver=docker
+```
+
+
+## Demo - Installing Minikube within Oracle Virtual Box as a Virtual Machine
+```
+minikube start --driver=virtualbox
+```
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/d807f6fb-9bb5-42aa-aefd-d8574aa814cd)
