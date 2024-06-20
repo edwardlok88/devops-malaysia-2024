@@ -36,6 +36,17 @@ Official website
 https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download  
 </pre>
 
+### Things to note
+<pre>
+- Minikube is not a production grade Kubernetes setup
+- Minikube only supports a single node but we can configure it run multiple nodes 
+- it is lightweight setup used in dev/qa environment
+- it is also popularly used for learning purpose
+- for production use, we need to either setup Kubernetes with multiple master and workers
+  - each nodes that we see in Kubernetes could be Physical server or Virtual Machine
+  - the Virtual Machine could be running on your datacenter, or public cloud
+</pre>  
+
 ## Kubernetes Overview
 <pre>
 - Kubernetes is a Container Orchestration Platform  
