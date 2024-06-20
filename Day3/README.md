@@ -105,3 +105,35 @@ Expected output
         - one or more containers will be created
         - inside container application will be running
 </pre>
+
+
+## Lab - Creating your first deployment in Kubernetes
+```
+kubectl create deployment nginx --image=nginx:latest --replicas=3
+```
+
+Listing all the deployments in default namespace
+```
+kubectl get deployments
+kubectl get deployment
+kubectl get deploy
+```
+
+Listing all the replicasets in default namespace
+```
+kubectl get replicasets
+kubectl get replicaset
+kubectl get rs
+```
+
+Listing all the pods in the default namespace
+```
+kubectl get pods
+kubectl get pod
+kubectl get po
+```
+
+In order to see the pod ip address and the node where those pods are deployed
+```
+kubectl get po -o wide
+```
