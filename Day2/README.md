@@ -317,3 +317,19 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/0905f6a7-3af9-4ad8-8237-6594652f0ef5)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/394a8b89-4220-4cb1-9d03-0e93b4f3d27b)
 
+## Lab - Deleting a docker image from your local docker registry
+```
+docker images
+docker pull hello-world:latest
+docker images
+```
+
+Now, let's delete the hello-world:latest docker image from local docker registry
+```
+docker rmi hello-world:latest
+docker images
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/dfd19683-3b25-4e3b-a965-fd14d88766f4)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/38dbb2e0-8a0c-43a0-8a73-c532aa518369)
