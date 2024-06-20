@@ -29,6 +29,13 @@
   - Azure ARO - Microsoft's Red Hat Openshift Managed Service
 </pre>
 
+## Lab - Install Kubernetes Minikube
+
+Official website
+<pre>
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download  
+</pre>
+
 ## Kubernetes Overview
 <pre>
 - Kubernetes is a Container Orchestration Platform  
