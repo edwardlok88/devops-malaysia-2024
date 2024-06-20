@@ -61,6 +61,11 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 ```
 
+Installing kubectl in Linux
+<pre>
+curl -LO https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl  
+</pre>
+
 ## Demo - Installing Minikube as Docker container
 ```
 minikube start --driver=docker
