@@ -83,4 +83,25 @@ Expected output
 - IP address is assigned on the Pod level not on the container level
 - the containers within the same Pod shares the same IP
 - the containers within the same Pod shared the Port range (0-65535) available on the Pod level
+- Pod is the smallest unit that can be deployed into Kubernetes
+</pre>
+
+## Info - ReplicaSet
+<pre>
+- When we want to run more than one instance of our application, we can scale up to run multiple Pod instances of our application
+- Through Replicaset we can define how many Pod instances you wish to run in the Kubernetes cluster
+- ReplicaSet is managed by ReplicaSet controller( Controller Managers -  Control Plane Component )
+- Scale up/down is supported by ReplicaSet Controller
+- ReplicaSet takes the ReplicaSet as the input and creates so many Pods in the K8s cluster
+</pre>
+
+## Info - Deployment
+<pre>
+- Whenever we deploy our applications into Kubernetes, we generally deploy them as Deployment
+- Let's say we wish to deploy nginx web server into Kubernetes, we need to create deployment for nginx
+  - this involves creating a nginx deployment
+    - this involves creating a nginx replicaset
+      - creates one or more Pods
+        - one or more containers will be created
+        - inside container application will be running
 </pre>
