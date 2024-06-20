@@ -339,3 +339,18 @@ In case you wish to delete all images from your local docker registry, you may d
 docker images -q
 docker rmi $(docker images -q)
 ```
+
+## Lab - Creating a container in the foreground mode
+```
+docker run -it --name ubuntu1 --hostname ubuntu ubuntu:16.04 /bin/bash
+hostname
+hostname -i
+exit
+docker ps -a
+```
+As we started the ubuntu1 container in interactive/foreground, it will take us inside the container shell immediately.
+
+If you exit the shell inside container, it will terminate the container as well as bash is the only application running inside the container.
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c0c74ff2-0acd-4207-ac4f-58e99bd93bd6)
