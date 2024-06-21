@@ -118,3 +118,44 @@ Any time we create container, it get its own network stack and software defined 
 This is how, the nginx_pause container got its IP address, the nginx container we ensured it doesn't have its own software defined network card, also we connect nginx container with nginx_pause container's network. That's how Kubernetes creates a group of container that share their network, ports, hostname etc.
 
 Pod is just a logical concept, when we deploy application only containers will be created in the nodes and they are mapped to a Pod record that resides in the etcd database.
+
+## Lab - Scale up - adding additional Pod instance to a deployment
+
+Listing deployments
+```
+kubectl get deployments
+kubectl get deployment
+kubectl get deploy
+```
+
+Listing replicasets
+```
+kubectl get replicasets
+kubectl get replicaset
+kubectl get rs
+```
+
+Listing pods
+```
+kubectl get pods
+kubectl get pod
+kubectl get po
+```
+Listing many resources with single command
+```
+kubectl get deploy,rs,po
+kubectl get po,rs,deploy
+kubectl get rs,po
+```
+
+Scale up the pod counts
+```
+kubectl scale deploy/nginx --replicas=5
+kubectl get po -w
+```
+
+Scale down the pod counts ( to come out of the watch mode, press Ctrl + c )
+```
+kubectl scale deploy/nginx --replicas=3
+kubectl get po -w
+```
