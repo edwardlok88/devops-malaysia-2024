@@ -179,3 +179,50 @@ kubectl port-forward nginx-89877bb6d-rlfgk 9090:80
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/50582e7d-3c30-482d-9ed2-c8f989a88d52)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/bf4d60de-85b3-49d8-b914-4ae812d9f1cc)
+
+
+## Lab - Deleting a deployment
+```
+kubectl get deploy
+kubectl delete deploy/nginx
+kubectl get deploy,rs,po
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/de6da31c-1c39-4d25-8ca6-f86cbd15a125)
+
+
+## Lab - Rolling update ( upgrading your application to latest version without any downtime )
+
+Let's deploy nginx 
+```
+kubectl create deployment nginx --image=nginx:1.18 --replicas=3
+kubectl get deploy,rs,po
+kubectl get deployment nginx
+kubectl get deployment nginx -o yaml
+```
+
+Let's perform rolling update by updating the image version to 1.19
+```
+kubectl set image deploy/nginx nginx=nginx:1.19
+kubectl get rs
+kubectl get po
+```
+
+Let's check the image version used by the new pods after rolling update
+```
+kubectl get pod/nginx-59d59d94c-q7w2s -o yaml | grep nginx:1.19
+```
+Let's check the image version used by the old replicaset
+```
+kubectl get rs/nginx-89877bb6d -o yaml | grep nginx:1.18
+```
+Let's check the image verison used by the new replicaset
+```
+kubectl get rs/nginx-59d59d94c -o yaml | grep nginx:1.19
+```
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/ee52b56b-ac99-433f-baae-a5d69bd97bd9)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/32a14f36-2e8c-4307-a588-1f2fb4c17f22)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/d8521738-dfe6-4bfc-b3ae-cebd70dbb67b)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/529e2cd8-d2ee-41d6-8017-ca5c690cb206)
