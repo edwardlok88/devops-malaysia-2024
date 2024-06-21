@@ -73,5 +73,16 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3
 ```
 
 <pre>
-  
+- kubectl client tool sends a REST call to API server requesting for new Deployment by name nginx to be created
+- API Server, receives the REST call from kubectl, it then creates a nginx deployment record in etcd datastore
+- API Server, then sends a broadcasting event that a new Deployment is created
+- Deployment Controller receives the new Deployment created event, it then sends a REST call to API Server requesting it to create a ReplicaSet for the nginx deployment
+- API Server will create a ReplicaSet record in etcd database and sends a broadcasting event like New ReplicaSet created
+- ReplicaSet Controller receives the new ReplicaSet created event, it then makes REST calls to API server to create New Pod entries 
+- API Server will create New Pod and sends a broadcasting event for each Pod it has created in etcd database
+- the new pod created event is received by Scheduler, it then sends it scheduling recommendation on where each Pod can run to the API server via REST call
+- API server, retrieves the Pod existing in etcd database and it updates the scheduling recommendation it received from Scheduler
+- API Server will send broadcasting event saying Pod scheduled to node so and so
+- The kubelet container agent which runs in every node will receive the event from API Server, it then downloads the container image and creates container with that image and reports the status back to API server via REST call
+- Api server updates the status of the Pod once all the container that are part of the Pod are in running status
 </pre>
