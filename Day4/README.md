@@ -168,3 +168,14 @@ kubectl exec -it nginx-89877bb6d-rlfgk sh
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/85167b37-6e92-438e-a8c6-ff4f7f9a91a3)
+
+
+## Lab - Port forward ( Use only for testing, not used in production )
+```
+kubectl get po
+kubectl port-forward nginx-89877bb6d-rlfgk 9090:80
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/50582e7d-3c30-482d-9ed2-c8f989a88d52)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/bf4d60de-85b3-49d8-b914-4ae812d9f1cc)
