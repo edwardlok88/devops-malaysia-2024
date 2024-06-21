@@ -238,3 +238,30 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/d8521738-dfe6-4bfc-b3ae-cebd70dbb67b)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/529e2cd8-d2ee-41d6-8017-ca5c690cb206)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5f75efe5-0ad4-4f5f-a4a9-98388216ac8d)
+
+## Lab - Creating an external NodePort service for nginx deployment
+```
+kubect get deployment
+kubectl get services
+kubectl get service
+kubectl get svc
+```
+
+Let's create the nodeport service for nginx deployment
+```
+kubectl expose deploy/nginx --port=8080 --type=NodePort
+kubectl get svc
+kubectl describe svc/nginx
+```
+
+Accessing the NodePort from outside the Kubernetes cluster
+```
+minikube ip
+curl http://192.168.49.2:32260
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/20138ee1-5f2f-4fc2-b906-153efb317eda)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/12ff3651-7281-4394-9237-3a640f17c365)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c689f9fc-efbc-4f12-aa18-08d84e2dd138)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f8f1df6e-292f-4ad3-92ae-6b8728aae886)
