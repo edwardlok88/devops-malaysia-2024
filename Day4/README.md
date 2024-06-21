@@ -86,3 +86,35 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3
 - The kubelet container agent which runs in every node will receive the event from API Server, it then downloads the container image and creates container with that image and reports the status back to API server via REST call
 - Api server updates the status of the Pod once all the container that are part of the Pod are in running status
 </pre>
+
+## Lab - How Pods are created by Kubernetes - let's understand using plain docker
+
+First we need to create a pause container
+```
+docker run -d --name nginx_pause --hostname nginx registry.k8s.io/pause:3.9
+docker ps
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx_pause
+```
+
+Next, let's create the application container
+```
+docker run -d --name nginx --network=container:nginx_pause nginx:latest
+docker ps
+```
+
+Let's get inside the nginx container shell to check its IP address, hostname, etc.,
+```
+docker exec -it nginx sh
+hostname
+hostname -i
+ls
+exit
+```
+
+If you notice, you would have observed that the nginx container reports the hostname assigned to the nginx_pause container and it also reports the IP address of the nginx_pause container.  
+
+Any time we create container, it get its own network stack and software defined network card.  Any container that has network card whether hardware or software defined network card it gets an IP Address.
+
+This is how, the nginx_pause container got its IP address, the nginx container we ensured it doesn't have its own software defined network card, also we connect nginx container with nginx_pause container's network. That's how Kubernetes creates a group of container that share their network, ports, hostname etc.
+
+Pod is just a logical concept, when we deploy application only containers will be created in the nodes and they are mapped to a Pod record that resides in the etcd database.
