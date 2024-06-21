@@ -221,8 +221,20 @@ Let's check the image verison used by the new replicaset
 ```
 kubectl get rs/nginx-59d59d94c -o yaml | grep nginx:1.19
 ```
+
+Rolling back to older image
+```
+kubectl rollout undo deploy/nginx
+```
+
+Let's check the image used by the pod
+```
+kubectl get rs/nginx-89877bb6d -o yaml | grep nginx:1.18
+kubectl get pod/nginx-89877bb6d-2hg65 -o yaml | grep image
+```
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/ee52b56b-ac99-433f-baae-a5d69bd97bd9)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/32a14f36-2e8c-4307-a588-1f2fb4c17f22)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/d8521738-dfe6-4bfc-b3ae-cebd70dbb67b)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/529e2cd8-d2ee-41d6-8017-ca5c690cb206)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5f75efe5-0ad4-4f5f-a4a9-98388216ac8d)
