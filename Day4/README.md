@@ -119,7 +119,7 @@ This is how, the nginx_pause container got its IP address, the nginx container w
 
 Pod is just a logical concept, when we deploy application only containers will be created in the nodes and they are mapped to a Pod record that resides in the etcd database.
 
-## Lab - Scale up - adding additional Pod instance to a deployment
+## Lab - Scale up/down - adding additional Pod instances in a deployment
 
 Listing deployments
 ```
