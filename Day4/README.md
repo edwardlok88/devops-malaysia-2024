@@ -159,3 +159,12 @@ Scale down the pod counts ( to come out of the watch mode, press Ctrl + c )
 kubectl scale deploy/nginx --replicas=3
 kubectl get po -w
 ```
+
+## Lab - Getting inside a Pod shell
+```
+kubectl get pods
+kubectl exec -it nginx-89877bb6d-rlfgk sh
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/85167b37-6e92-438e-a8c6-ff4f7f9a91a3)
