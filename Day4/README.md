@@ -249,7 +249,7 @@ kubectl get svc
 
 Let's create the nodeport service for nginx deployment
 ```
-kubectl expose deploy/nginx --port=8080 --type=NodePort
+kubectl expose deploy/nginx --port=80 --type=NodePort
 kubectl get svc
 kubectl describe svc/nginx
 ```
