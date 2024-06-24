@@ -99,4 +99,11 @@ ls nginx-deploy.yml
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/e4945cb4-86b3-4a81-aaf2-a02f94f37b19)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/c5e7f3a8-dbdf-461b-9543-828a64b86d76)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/2752ec43-ef96-47d7-84b4-5390fb4c5450)
 
+
+Now let's create nginx deployment in declarative style using the yaml manifest scripts
+```
+kubectl apply -f nginx-deploy.yml
+kubectl get deploy
+```
