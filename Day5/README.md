@@ -33,3 +33,48 @@ You may refer my medium blog about creating an external loadbalancer service in 
 https://medium.com/tektutor/using-metal-lb-on-a-bare-metal-onprem-kubernetes-setup-6d036af1d20c  
 </pre>
 
+Before we create a load-balancer service, let's delete the existing clusterip service
+```
+kubectl get svc
+kubectl delete svc/nginx
+kubectl get svc
+```
+
+Let's create the loadbalancer external service
+```
+kubectl get deploy
+kubectl expose deploy/hello --type=LoadBalancer --port=8080
+kubectl get svc
+kubectl describe svc/hello
+```
+
+If you haven't configured the address-pool already for the metallb operator you need to create a yaml file as shown below
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.49.100-192.168.49.110
+```
+
+You need to run 
+```
+cd ~/devops-malaysia-2024
+git pull
+cd Day5/metallb
+cat metallb-addresspool.yml
+oc apply -f metallb-addresspool.yml
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/b3eab98b-3f76-40ea-a866-1456e3b0a139)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5ea56818-6849-4af2-8316-a5d4c54cf3ae)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/60c660a9-c529-4dae-8f44-8c07ae96fbc2)
+
