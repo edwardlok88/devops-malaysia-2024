@@ -1,1 +1,80 @@
 # Day 5
+
+## Lab - Creating a clusterip internal service for nginx deployment
+
+Let's delete the nginx node port service
+```
+kubectl get svc
+kubectl delete svc/nginx
+kubectl get svc
+```
+
+Let's create the internal clusterip service for nginx deploy
+```
+kubectl expose deploy/nginx --type=ClusterIP --port=80
+kubectl get svc
+kubectl describe svc/nginx
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/148ee3c4-8f92-4b2f-a920-44c9fc08a9ea)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5758b037-2915-4c7a-8656-6ac49d730566)
+
+
+## Lab - Creating an external Load Balancer service
+<pre>
+- Load Balancer service is created in case your K8s cluster is running in a public cloud like AWS, Azure, GCP, etct.,
+- It won't work in local K8s/Openshift cluster
+- In order to make this work in local K8s/Openshift cluster, we need install something called metallb load balancer
+</pre>
+
+You may refer my medium blog about creating an external loadbalancer service in K8s cluster
+<pre>
+https://medium.com/tektutor/using-metal-lb-on-a-bare-metal-onprem-kubernetes-setup-6d036af1d20c  
+</pre>
+
+Before we create a load-balancer service, let's delete the existing clusterip service
+```
+kubectl get svc
+kubectl delete svc/nginx
+kubectl get svc
+```
+
+Let's create the loadbalancer external service
+```
+kubectl get deploy
+kubectl expose deploy/hello --type=LoadBalancer --port=8080
+kubectl get svc
+kubectl describe svc/hello
+```
+
+If you haven't configured the address-pool already for the metallb operator you need to create a yaml file as shown below
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.49.100-192.168.49.110
+```
+
+You need to run 
+```
+cd ~/devops-malaysia-2024
+git pull
+cd Day5/metallb
+cat metallb-addresspool.yml
+oc apply -f metallb-addresspool.yml
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/b3eab98b-3f76-40ea-a866-1456e3b0a139)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5ea56818-6849-4af2-8316-a5d4c54cf3ae)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/60c660a9-c529-4dae-8f44-8c07ae96fbc2)
+
