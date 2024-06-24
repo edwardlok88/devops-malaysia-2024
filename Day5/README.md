@@ -196,3 +196,31 @@ curl http://192.168.49.100:80
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/271df943-406c-4cd7-81b8-a280a99a5a10)
+
+
+## Lab - Creating a replicaset in declarative style
+```
+kubectl get rs -n jegan
+kubectl get rs/nginx-89877bb6d -n jegan -o yaml
+kubectl get rs/nginx-89877bb6d -n jegan -o yaml > nginx-rs.yml
+
+kubectl delete deploy/nginx -n jegan
+kubectl apply -f nginx-rs.yml
+kubectl get rs -n jegan
+```
+
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/11c5c577-1bbc-4f64-8db9-146a136eb913)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/653b97a0-7df7-4f91-b393-0d09fc92597d)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/70e5647c-4024-4439-b8cf-4819fd32725a)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5336d2a1-6f08-4e3d-9206-d1d64fd73ab7)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/bad1a56b-b189-4960-aa0a-5162c6d21ebd)
+
+
+Things to note
+<pre>
+- Though it is technically possible to create a replicaset with deployment, it is not a best practice
+- Rolling update is supporting by the deployment controller, we would not be able to perform rolling update without a deployment
+- Self healing of replicaset is possible as in our case replicaset is the top most resource
+</pre>
