@@ -78,3 +78,20 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5ea56818-6849-4af2-8316-a5d4c54cf3ae)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/60c660a9-c529-4dae-8f44-8c07ae96fbc2)
 
+
+## Lab - Deploying nginx in K8s cluster in declarative style
+
+First let's delete the exixting nginx deployment
+```
+kubectl delete deploy/nginx svc/nginx
+kubectl get deploy,svc
+```
+
+
+Let's auto-generate nginx deployment
+```
+kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o yaml --dry-run=client
+kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o json --dry-run=client
+kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o yaml --dry-run=client > nginx-deploy.yml
+ls nginx-deploy.yml
+```
