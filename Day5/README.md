@@ -152,3 +152,25 @@ kubectl delete -f nginx-clusterip-svc.yml
 ```
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/37e0e40e-d9d5-4c53-aa6b-72138385b93b)
+
+## Lab - Creating nodeport service in declarative style
+
+Let's ensure first we delete any nginx service
+```
+kubectl delete -f nginx-clusterip-svc.yml
+kubectl get svc
+```
+
+Let's create the nodeport service in declarative style
+```
+kubectl expose deploy/nginx -n jegan --port=80 --type=NodePort -o yaml --dry-run=client
+kubectl expose deploy/nginx -n jegan --port=80 --type=NodePort -o yaml --dry-run=client > nginx-nodeport-svc.yml
+ls -l
+
+kubectl apply -f nginx-nodeport-svc.yml
+kubectl get svc
+kubectl describe svc/nginx
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/780cd2fd-7eae-4c63-b682-ec5d8b52b1cf)
