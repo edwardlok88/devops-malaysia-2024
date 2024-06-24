@@ -108,8 +108,12 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/2752ec43-ef96-47d7-84b4-5390fb4c5450)
 
 
+Make sure you have edit the nginx-deploy.yml to reflect your namespace
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/0e6e0b57-5485-4f19-adb3-f0c711128a5b)
+
+
 Now let's create nginx deployment in declarative style using the yaml manifest scripts
 ```
 kubectl apply -f nginx-deploy.yml
-kubectl get deploy
+kubectl get deploy -n jegan
 ```
