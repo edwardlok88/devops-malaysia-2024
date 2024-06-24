@@ -174,3 +174,25 @@ kubectl describe svc/nginx
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/780cd2fd-7eae-4c63-b682-ec5d8b52b1cf)
+
+
+## Lab - Creating a nginx load balancer service in declarative style
+We need to delete any existing nginx service
+```
+kubectl delete -f nginx-nodeport-svc.yml
+kubectl get svc
+```
+
+Let's create the loadbalancer external service in declarative style
+```
+kubectl get deploy -n jegan
+kubectl expose deploy/nginx -n jegan --port=80 --type=LoadBalancer -o yaml --dry-run=client
+kubectl expose deploy/nginx -n jegan --port=80 --type=LoadBalancer -o yaml --dry-run=client > nginx-lb-svc.yml
+ls -l
+kubectl apply -f nginx-lb-svc.yml
+kubectl get svc -n jegan
+curl http://192.168.49.100:80
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/271df943-406c-4cd7-81b8-a280a99a5a10)
