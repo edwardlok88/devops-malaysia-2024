@@ -98,7 +98,7 @@ Let's auto-generate nginx deployment
 ```
 kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o yaml --dry-run=client
 kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o json --dry-run=client
-kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -n jegan -o yaml --dry-run=client > nginx-deploy.yml
+kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o yaml --dry-run=client > nginx-deploy.yml
 ls nginx-deploy.yml
 ```
 
@@ -117,3 +117,16 @@ Now let's create nginx deployment in declarative style using the yaml manifest s
 kubectl apply -f nginx-deploy.yml
 kubectl get deploy -n jegan
 ```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f75e2783-d2d5-4943-8c06-c85bfbfe0172)
+
+
+Scaling up the nginx deployment in declarative style, edit the nginx-deploy.yml and update the replicas from 1 to 5
+```
+kubectl apply -f nginx-deploy.yml
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/474a139e-8e4a-4f6f-9925-4fdbd5cdc162)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/13282943-beeb-48e1-9fa5-24debab62b3c)
