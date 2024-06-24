@@ -130,3 +130,25 @@ kubectl apply -f nginx-deploy.yml
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/474a139e-8e4a-4f6f-9925-4fdbd5cdc162)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/13282943-beeb-48e1-9fa5-24debab62b3c)
+
+
+## Lab - Declarative creating a clusterip internal service for nginx deployment
+```
+kubectl get deploy -n jegan
+kubectl expose deploy/nginx -n jegan --type=ClusterIP --port=80 -o yaml --dry=client
+kubectl expose deploy/nginx -n jegan --type=ClusterIP --port=80 -o yaml --dry=client > nginx-clusterip-svc.yml
+ls -l
+kubectl apply -f nginx-clusterip-svc.yml
+kubectl get svc
+kubectl describe svc/nginx
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/d6fc9e36-a287-4f84-b230-0aebdafa7404)
+
+Deleting a clusterip service in declarative style
+```
+kubectl delete -f nginx-clusterip-svc.yml
+```
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/37e0e40e-d9d5-4c53-aa6b-72138385b93b)
