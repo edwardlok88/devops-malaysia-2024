@@ -87,12 +87,18 @@ kubectl delete deploy/nginx svc/nginx
 kubectl get deploy,svc
 ```
 
+It's a good practice to create a namespace for you and deploy all your application inside your namespace
+```
+kubectl create namespace jegan
+kubectl get namespaces
+```
+
 
 Let's auto-generate nginx deployment
 ```
 kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o yaml --dry-run=client
 kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o json --dry-run=client
-kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -o yaml --dry-run=client > nginx-deploy.yml
+kubectl create deployment nginx --image=nginx:1.18 --replicas=3 -n jegan -o yaml --dry-run=client > nginx-deploy.yml
 ls nginx-deploy.yml
 ```
 
