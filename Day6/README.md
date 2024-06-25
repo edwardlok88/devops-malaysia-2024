@@ -81,3 +81,5 @@ Expected output
 
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/46d8a2aa-9058-4544-b297-ad2214734c87)
 
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/631fe285-c0cc-42b6-be95-f1acbcc19683)
+
