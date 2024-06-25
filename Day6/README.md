@@ -141,6 +141,10 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/b6aa9eec-ffa3-4a0c-a467-af3a02e23942)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7957564c-88a6-4157-b9d2-c95bab51a320)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/9f53b296-dd15-4948-a457-0698475e2da3)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7e045506-4443-4dab-b5d9-11cb4a4fb765)
+
+Let's deploy workpress
+
 
 ## Info - HELM Overview
 <pre>
