@@ -109,6 +109,39 @@ Expected output
   - Storage Class ( optional )
 </pre>  
 
+## Lab - Deploying wordpress and mariadb multi-pod application
+First, let's deploy mariadb with Persistent Volume external storage coming from Remote NFS Server
+```
+cd ~/devops-malaysia-2024
+git pull
+cd Day6/persistent-volume
+kubectl apply -f mariadb-pv.yml
+kubectl get persistentvolumes
+kubectl get persistentvolume
+kubectl get pv
+
+kubectl apply -f mariadb-pvc.yml
+kubectl get persitentvolumeclaims
+kubectl get persitentvolumeclaim
+kubectl get pvc
+```
+
+Let's create the mariadb deployment
+```
+cd Day6/persistent-volume
+kubectl apply -f mariadb-deploy.yml
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/e6547b63-6fbb-47b6-82ee-497f4abc4b1e)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/8f63eedd-3d9f-4c67-903e-6f1bd03c4b74)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/59bd2833-c04b-44fd-9a0f-307b1926ec4d)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f2119b1a-b312-452e-a20b-c2d4daf30982)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f633ca12-a1d2-4194-aec2-33d4861ab67f)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/b6aa9eec-ffa3-4a0c-a467-af3a02e23942)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7957564c-88a6-4157-b9d2-c95bab51a320)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/9f53b296-dd15-4948-a457-0698475e2da3)
+
 ## Info - HELM Overview
 <pre>
 - Helm is a package manager for Kubernetes & Openshift
