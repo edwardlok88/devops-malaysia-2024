@@ -83,3 +83,9 @@ Expected output
 
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/631fe285-c0cc-42b6-be95-f1acbcc19683)
 
+## Info - HELM Overview
+<pre>
+- Helm is a package manager for Kubernetes & Openshift
+- the helm packaged application is called chart
+</pre>
+
