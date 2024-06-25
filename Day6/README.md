@@ -65,7 +65,16 @@ spec:
               number: 8080
 ```
 
+Create the ingress in Kubernetes cluster
+```
+kubectl apply -f ingress.yml
+kubectl get ingress
+kubectl describe ingress/tektutor
+```
+
 Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/ff73a367-645a-4171-873a-a6eb9036b5b9)
+
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/ccb75211-93a2-4699-86bc-ed139f6b6575)
 
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/41b396b9-0d77-4632-8c4e-a25e4e383008)
