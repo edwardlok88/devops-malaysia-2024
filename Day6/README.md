@@ -83,6 +83,32 @@ Expected output
 
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/631fe285-c0cc-42b6-be95-f1acbcc19683)
 
+## Info - What is Peristent Volume
+<pre>
+- If your application happens a stateful application, it needs to persistent the data beyond the lifetime of the Pod containers
+- In this case, we need to use an external storage usually referred in Kubernetes/Openshift as Persistent Volume (PV)
+- the persistent volume storage can come from NFS, AWS S3, AWS EBS, Azure Storage
+- Persistent Volume can be provisioned by the System Administrator either manually or using Storage Class dynamically
+- the scope of Persistent Volume is cluster wide, so any application running in the cluster on anyname can claim the Persistent Volume if the below criteria matches
+- Persistent Volume
+  - size in MB/GB
+  - type of Storage
+  - StorageClass (optional)
+  - AccessMode
+    - ReadWriteOnce ( All Pods running in same node can access the PV )
+    - ReadWriteMany ( All Pods running in any node can access the PV )
+</pre>  
+
+## Info - Application that needs external storage will ask K8s for storage?
+<pre>
+- Any stateful application that needs external storage has to request the K8s/Openshift cluster by defining a Persistent Volume Claim(PVC)
+- the PVC has ask for 
+  - how much disk space required in MB/GB
+  - Access Mode
+  - type of Storage (NFS )
+  - Storage Class ( optional )
+</pre>  
+
 ## Info - HELM Overview
 <pre>
 - Helm is a package manager for Kubernetes & Openshift
