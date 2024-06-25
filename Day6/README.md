@@ -14,3 +14,61 @@
   - Assume the logout page of my website is http://www.tektutor.org/logout
   - Assume the trainings page of website is http://www.tektutor.org/trainings
 </pre>
+
+## Lab - Creating an Ingress Forwarding rules
+In case you already don't have nginx deployment, you may deploy as shown below
+```
+kubectl create deployment nginx --image=nginx:latest --replicas=3
+kubectl get deploy,rs,po
+kubectl expose deploy/nginx --port=80
+kubectl get svc
+kubectl describe svc/nginx
+```
+
+In case you already don't have hello deployment, you may deploy as shown below
+```
+kubectl create deployment hello  --image=tektutor/hello:4.0 --replicas=3
+kubectl get deploy,rs,po
+kubectl expose deploy/hello --port=8080
+kubectl get svc
+kubectl describe svc/hello
+```
+
+Create a file ingress.yml
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tektutor
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: www.tektutor.org
+    http:
+      paths:
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 80
+
+      - path: /hello
+        pathType: Prefix
+        backend:
+          service:
+            name: hello 
+            port:
+              number: 8080
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/ccb75211-93a2-4699-86bc-ed139f6b6575)
+
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/41b396b9-0d77-4632-8c4e-a25e4e383008)
+
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/46d8a2aa-9058-4544-b297-ad2214734c87)
+
