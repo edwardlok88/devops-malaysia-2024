@@ -66,8 +66,28 @@ wordpress_pv_nfs_path: "/var/nfs/jegan/wordpress"
 nfs_server_ip: "192.168.1.108"  
 </pre>
 
+You need to copy the values.yml from helm folder to wordpress folder before creating helm chart package
+```
+cd ~/devops-malaysia-2024
+git pull
+cd Day7/helm
+cp values.yaml wordpress
+helm package wordpress
+ls -l
+```
+
+Installing the wordpress chart into Kubernetes
+```
+helm install wordpress wordpress-0.1.0.tgz
+helm list
+kubectl get deploy,po,svc
+```
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/2636776c-01f9-4e0e-aa5e-fd7a01926e03)
+
+
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/655faefe-8c9d-4205-8066-9714705aedc3)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/256a565f-4ecd-4435-b7eb-7c975e6f6382)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f0991680-0b77-42ee-a9a9-ed299a1c750a)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/3199c5d0-d79f-42ab-a60f-00f87d69afaa)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5b91ca0a-abd5-47d9-a518-63a43b7ee5f6)
