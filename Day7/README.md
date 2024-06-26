@@ -89,5 +89,27 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/655faefe-8c9d-4205-8066-9714705aedc3)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/256a565f-4ecd-4435-b7eb-7c975e6f6382)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f0991680-0b77-42ee-a9a9-ed299a1c750a)
+
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/3199c5d0-d79f-42ab-a60f-00f87d69afaa)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5b91ca0a-abd5-47d9-a518-63a43b7ee5f6)
+
+## Info - What is StatefulSet?
+<pre>
+- Deployment is meant for stateless applications
+- While StatefulSet is meant for deploying stateful applications
+- creating multiple replicas of stateless pods is very easy as they are totally independent of each other
+- creating multiple replicas of stateful pos like mysql/mariadb pods has to consider many factors
+- when we create multiple instances of mysql pod in a statefulset, it create unique names for each mysql Pod 
+- For example ( replicas=3 )
+  - the first mysql pod will be named as mysql-0
+  - the second mysql pod will be named as mysql-1
+  - the third mysql pod will be named as mysql-2
+- the mysql-1 Pod will be created only after the mysql-0 pod moves to running state
+- the mysql-2 Pod will be created only after the mysql-1 pod moves to running state
+- the mysql-0 Pod acts a master mysql with read/write permission to the database tables
+- the mysql-1 and mysql-2 Pods are slaves of mysql-0 Pod with read only replicas of the data owned by mysql-0 Pod
+- but the mysql-1 and mysql-2 Pods has own their copy of the database tables with read only access, but they get synchronized automatically
+- the statefulset controller ensures when a mysql pod crashes in let's say worker-1 node, a new Pod with the same name will be created exactly in the same node
+- the deployment doesn't provide this kind of assurance
+</pre>
+
