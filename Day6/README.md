@@ -167,6 +167,9 @@ kubectl apply -f wordpress-svc.yml
 kubectl get pv,pvc,po,svc
 ```
 
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/e2286cdc-cdfe-41b6-ac27-cb85f2b91e40)
+
 
 
 ## Info - HELM Overview
