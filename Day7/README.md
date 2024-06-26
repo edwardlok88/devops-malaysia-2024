@@ -32,3 +32,6 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scrip
 chmod 700 get_helm.sh
 ./get_helm.sh
 ```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5ad7c35e-7a50-474e-9594-4af2333a8840)
