@@ -132,6 +132,16 @@ cd Day6/persistent-volume
 kubectl apply -f mariadb-deploy.yml
 ```
 
+Let's create mariadb service
+```
+cd Day6/persistent-volume
+kubectl apply -f mariadb-svc.yml
+kubectl get services
+kubectl get service
+kubectl get svc
+kubectl describe svc/mariadb
+```
+
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/e6547b63-6fbb-47b6-82ee-497f4abc4b1e)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/8f63eedd-3d9f-4c67-903e-6f1bd03c4b74)
@@ -143,7 +153,20 @@ Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/9f53b296-dd15-4948-a457-0698475e2da3)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/7e045506-4443-4dab-b5d9-11cb4a4fb765)
 
-Let's deploy workpress
+Let's deploy wordpress
+```
+cd ~/devops-malaysia-2024
+git pull
+cd Day6/persitent-volume
+
+kubectl apply -f wordpress-pv.yml
+kubectl apply -f wordpress-pvc.yml
+kubectl apply -f wordpress-deploy.yml
+kubectl apply -f wordpress-svc.yml
+
+kubectl get pv,pvc,po,svc
+```
+
 
 
 ## Info - HELM Overview
