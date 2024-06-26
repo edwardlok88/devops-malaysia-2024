@@ -4,7 +4,7 @@
 ```
 cd ~/devops-malaysia-2024
 git pull
-cd Day7/mysql
+cd Day6/mysql
 kubectl create deployment mysql --image=bitnami/mysql:latest -o yaml --dry-run=client 
 kubectl create deployment mysql --image=bitnami/mysql:latest -o yaml --dry-run=client > mysql-deploy.yml
 
