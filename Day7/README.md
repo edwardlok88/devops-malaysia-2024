@@ -46,7 +46,15 @@ pwd
 
 helm create wordpress
 tree wordpress
+
+cd wordpress/templates
+rm -rf *
+cd ..
+echo "" > values.yaml
+cat values.yaml
 ```
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/655faefe-8c9d-4205-8066-9714705aedc3)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/256a565f-4ecd-4435-b7eb-7c975e6f6382)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f0991680-0b77-42ee-a9a9-ed299a1c750a)
