@@ -52,6 +52,9 @@ rm -rf *
 cd ..
 echo "" > values.yaml
 cat values.yaml
+
+cp declarative-manifest-scripts/*.yml wordpress/templates
+tree wordpress
 ```
 
 Expected output
