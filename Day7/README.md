@@ -57,7 +57,17 @@ cp declarative-manifest-scripts/*.yml wordpress/templates
 tree wordpress
 ```
 
+You need to update the values.yaml as shown below
+<pre>
+mariadb_pv_size: 100Mi
+mariadb_pv_nfs_path: "/var/nfs/jegan/mariadb"
+wordpress_pv_size: 100Mi
+wordpress_pv_nfs_path: "/var/nfs/jegan/wordpress"
+nfs_server_ip: "192.168.1.108"  
+</pre>
+
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/655faefe-8c9d-4205-8066-9714705aedc3)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/256a565f-4ecd-4435-b7eb-7c975e6f6382)
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/f0991680-0b77-42ee-a9a9-ed299a1c750a)
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/3199c5d0-d79f-42ab-a60f-00f87d69afaa)
