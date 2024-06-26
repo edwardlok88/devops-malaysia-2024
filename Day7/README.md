@@ -35,3 +35,18 @@ chmod 700 get_helm.sh
 
 Expected output
 ![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/5ad7c35e-7a50-474e-9594-4af2333a8840)
+
+## Lab - Creating a custom helm chart for wordpress & mariadb multi-pod application
+```
+cd ~/devops-malaysia-2024
+git pull
+cd Day7/helm
+tree declarative-manifest-scripts
+pwd
+
+helm create wordpress
+tree wordpress
+```
+
+Expected output
+![image](https://github.com/tektutor/devops-malaysia-2024/assets/12674043/655faefe-8c9d-4205-8066-9714705aedc3)
