@@ -138,6 +138,7 @@
 </pre>
 
 ## Docker High Level Archtitecture
+![Docker](DockerHighLevelArchitecture.png)
 
 ## Docker Registries
 
